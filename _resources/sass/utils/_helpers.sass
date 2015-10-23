@@ -1,0 +1,215 @@
+/**
+ * Contains various utility classes
+ * file: utils/_helpers.sass
+ */
+
+.u-overflow-hidden
+	overflow: hidden
+
+.u-overflow-x-hidden
+	overflow: hidden
+
+.u-overflow-y-hidden
+	overflow: hidden
+
+
+
+
+.u-margin-0
+	margin: 0 !important
+
+.u-margin-center
+	+margin(null auto)
+
+
+
+
+.u-absolute-center
+	+center
+
+
+
+
+.u-circlify
+	border-radius: 50%
+
+
+
+
+.u-uppercase
+	text-transform: uppercase
+
+
+
+
+/**
+ * Utility classes
+ */
+.u-float-right
+	float: right !important
+
+.u-float-left
+	float: left !important
+
+
+
+
+.u-text-left
+	text-align: left
+
+.u-text-center
+	text-align: center
+
+.u-text-right
+	text-align: right
+
+.u-text-justify
+	text-align: justify
+
+
+
+
+.u-pos-fixed
+	position: fixed !important
+
+.u-pos-absolute
+	position: absolute !important
+
+.u-pos-relative
+	position: relative !important
+
+.u-pos-expand
+	+position(null, 0)
+
+.u-translateZ0
+	transform: translateZ(0px)
+
+
+
+
+.u-display-inline
+	display: inline
+
+.u-inline-block
+	display: inline-block
+
+.u-block
+	display: block
+
+
+
+
+.u-clear
+	clear: both
+
+.u-clearfix
+	+clearfix
+
+
+
+
+.is-hidden
+	display: none !important
+
+.is-invisible
+	visibility: none !important
+
+.u-text-hide
+	position: absolute
+	opacity: 0
+	user-select: none
+	left: -10000px
+
+
+
+
+.u-align-middle
+	vertical-align: middle
+
+.u-align-top
+	vertical-align: top
+
+.u-align-bottom
+	vertical-align: bottom
+
+.u-align-baseline
+	vertical-align: bottom
+
+
+
+
+.flex
+	display: flex
+	flex-wrap: wrap
+
+	&--column
+		flex-direction: column
+
+	&--row
+		flex-direction: row
+
+.flex-inline
+	display: inline-flex
+
+
+
+.flex--nowrap
+	flex-wrap: nowrap
+.flex--wrap
+	flex-wrap: wrap
+.flex--container
+	display: inline-flex
+
+
+
+
+.flex--justify-center
+	justify-content: center
+.flex--justify-start
+	justify-content: flex-start
+.flex--justify-end
+	justify-content: flex-end
+.flex--justify-around
+	justify-content: space-around
+.flex--justify-between
+	justify-content: space-between
+
+
+
+
+.flex--items-start
+	align-items: flex-start
+.flex--items-center
+	align-items: center
+.flex--items-end
+	align-items: flex-end
+.flex--items-around
+	align-items: space-around
+.flex--items-between
+	align-items: space-between
+
+
+
+
+.flex--self-center
+	align-self: center
+
+.flex--self-end
+	align-self: flex-end
+
+.flex--self-start
+	align-self: flex-start
+
+
+
+
+
+// Helper classes for font weights
+@each $weight in (normal, 100, 200, 300, 400, 500, 600, 700, 800, 900)
+	.u-weight-#{$weight}
+		font-weight: $weight
+
+// Helper classes for letter spacing
+@each $size in (1, 2, 3, 4, 5)
+	.u-lt-#{$size}
+		letter-spacing: #{$size}px

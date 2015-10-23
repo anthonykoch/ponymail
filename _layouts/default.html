@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="robots" content="noindex">
+	<meta name="description" content="{{ page.description }}">
+
+	<link rel="stylesheet" href="{{ site.stylesheets }}/main.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Montserrat:400,400italic,700, 700italic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+	<title>Pony Mail Express</title>
+</head>
+<body>
+	<div class="page-wrapper">
+		{{ content }}
+	</div>
+
+	<script>
+		var __initialEmails  = {{ site.data.inbox | jsonify }};
+		var __initialLabels  = {{ site.data.labels | jsonify }};
+		var __initialButtons = {{ site.data.buttons | jsonify }};
+		var __initialDrafts  = {{ site.data.drafts | jsonify }};
+	</script>
+
+	<script src="{{ site.javascripts }}/vendor.js"></script>
+	<script src="{{ site.javascripts }}/app.js"></script>
+</body>
+</html>

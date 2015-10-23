@@ -1,0 +1,30 @@
+exclude: ['node_modules', '_resources', 'gulp', 'extras.txt']
+
+
+url: "//anthonykoch.github.io/ponymail/"
+
+
+javascripts: "//anthonykoch.github.io/ponymail/assets/javascripts"
+stylesheets: "//anthonykoch.github.io/ponymail/assets/stylesheets"
+images: "//anthonykoch.github.io/ponymail/assets/images"
+
+
+social:
+  twitter:
+    link: 'https://twitter.com/'
+    handle: '@'
+
+  github:
+    link: 'https://github.com/'
+    name: ''
+
+
+defaults:
+  -
+    scope:
+      path: '' # an empty string here means all files in the project
+    values:
+      description: ''
+
+
+permalink: /:year/:title

@@ -1,0 +1,45 @@
+<!-- The checkbox that holds the state of the checkbox toggle  -->
+<input type="checkbox" class="is-hidden" id="mobile-checkbox">
+
+<aside class="sidebar">
+
+	<div class="sidebar__compose">
+		<div class="u-text-center">
+			<button class="[ button button--medium button--primary ]">
+				Compose
+			</button>
+		</div>
+	</div>
+
+	<ul class="[ ui-list ]">
+	{% for item in site.data.sidebar %}
+	<li>
+		<button id="{{ item.id }}" class="[ sidebar__button  {% if item.title == 'Inbox' %} sidebar__button--active {% endif %} ]  [ button ]">
+
+			<span class="[ flex flex--items-center flex--justify-between ]">
+				<span>
+					<i class="u-align-middle  button__icon button__icon--medium  [ ion {{ item.icon }} ]"></i>
+					<span class="u-align-middle">{{ item.title }}</span>
+				</span>
+				<span
+					class="button__notification  button__notification--right
+						{% if item.title == 'Drafts' %} button__notification--bordered {% endif %}">
+						{% if item.title == 'Drafts' %} 4 {% endif %}
+				</span>
+			</span>
+		</button>
+	</li>
+	{% endfor %}
+	</ul>
+
+	<div class="sidebar__separator"></div>
+
+	<div>
+		<h5 class="sidebar__heading  [ flex flex--justify-between flex--items-center ]">
+			<span>Labels</span>
+			<label id="sidebar__add-label" for="sidebar__label-input" class="[ ion ion-plus ]  sidebar__heading-action"></label>
+			<input id="sidebar__label-input" class="is-hidden" type="text" placeholder="New Label">
+		</h5>
+		<ul id="sidebar__labels"></ul>
+	</div>
+</aside>

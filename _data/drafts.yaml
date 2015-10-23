@@ -1,0 +1,22 @@
+
+- title: How'd the interviews go?
+  recipients:
+    to: Travis Neilson
+    cc: []
+    bcc: []
+  isSent: false
+  isSoftDeleted: false
+  isHardDeleted: false
+  isDraft: true
+  body: <div id="montserrat">Hope they went well!</div>
+
+- title: Paperwork
+  recipients:
+    to: John Smith
+    cc: []
+    bcc: []
+  isSent: true
+  isSoftDeleted: false
+  isHardDeleted: false
+  isDraft: true
+  body: <div id="montserrat">John, I'm going to need the paperwork done by the end of the day.</div>

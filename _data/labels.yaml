@@ -1,0 +1,32 @@
+- title: Work
+  active: false
+
+- title: Code
+  active: true
+
+- title: Fashion
+  active: false
+
+- title: Animals
+  active: false
+
+- title: Github
+  active: true
+
+- title: Dev
+  active: false
+
+- title: Food
+  active: false
+
+- title: News
+  active: false
+
+- title: Other
+  active: false
+
+- title: Cool
+  active: false
+
+- title: Stuff
+  active: false

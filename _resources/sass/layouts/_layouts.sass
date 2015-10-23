@@ -1,0 +1,59 @@
+/**
+ * file: _layouts.sass
+ * Styles for various elements
+ */
+
+.status--success
+	color: $green
+
+.status--error
+	color: $red
+
+.status--warning
+	color: $orange
+
+
+
+
+.montserrat
+	*
+		font-family: Montserrat !important
+
+	p
+		font-size: 1rem
+
+
+
+
+.loading-indicator
+	background-color: white
+	padding: 10px
+
+.spinner
+	$height: 20px
+	$width:  $height
+	border: 2px solid $blue
+	border-right-color: transparent
+	border-radius: 50%
+	margin: 0 auto
+	animation: spin .8s linear infinite
+	+size($width $height)
+
+
+
+
+
+/**
+ * Ion icon
+ */
+.pseudo-ion
+	display: inline-block
+	font-family: "Ionicons"
+	speak: none
+	font-style: normal
+	font-weight: normal
+	font-variant: normal
+	text-transform: none
+	text-rendering: auto
+	line-height: 1
+	-webkit-font-smoothing: antialiased

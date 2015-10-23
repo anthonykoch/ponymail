@@ -1,0 +1,24 @@
+- title: Inbox
+  icon: ion-ios-filing
+  id: inboxButton
+  path: /inbox
+
+- title: Favorites
+  icon: ion-heart
+  id: favoritesButton
+  path: /favorites
+
+- title: Sent
+  icon: ion-paper-airplane
+  id: sentButton
+  path: /sent
+
+- title: Drafts
+  icon: ion-document-text
+  id: draftsButton
+  path: /drafts
+
+- title: Trash
+  icon: ion-trash-b
+  id: trashButton
+  path: /trash

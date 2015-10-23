@@ -1,0 +1,70 @@
+
+
+$red: #D04F3A;
+$light-orange: #FDA737;
+$orange: #FD7037;
+$green: #45BF7B;
+$blue: #3AB2D0;
+
+$icon-color: #B0BDC0;
+
+
+$color-primary: $red;
+$color-secondary: $red;
+$color-foreground: #323B3D;
+$color-accent: desaturate(darken($color-primary, 41), 70);
+
+
+
+
+$lightness-variants: (
+	'lightest': 70,
+	'lighter': 50,
+	'light': 30,
+	'dark': -30,
+	'darker': -56,
+	'darkest': -70
+);
+
+
+
+
+$colors: (
+	'primary': (
+		'base': $color-primary,
+	),
+	'secondary': (
+		'base': $color-secondary,
+		'lightest': scale-color($color-secondary, $lightness: map-get($lightness-variants, 'lightest')),
+		'lighter':  scale-color($color-secondary, $lightness: map-get($lightness-variants, 'lighter')),
+		'light':    scale-color($color-secondary, $lightness: map-get($lightness-variants, 'light')),
+		'dark':     scale-color($color-secondary, $lightness: map-get($lightness-variants, 'dark')),
+		'darker':   scale-color($color-secondary, $lightness: map-get($lightness-variants, 'darker')),
+		'darkest':  scale-color($color-secondary, $lightness: map-get($lightness-variants, 'darkest')),
+	),
+	'foreground': (
+		'base':     $color-foreground,
+		'lightest': scale-color($color-foreground, $lightness: map-get($lightness-variants, 'lightest')),
+		'lighter':  scale-color($color-foreground, $lightness: map-get($lightness-variants, 'lighter')),
+		'light':    scale-color($color-foreground, $lightness: map-get($lightness-variants, 'light')),
+		'dark':     scale-color($color-foreground, $lightness: map-get($lightness-variants, 'dark')),
+		'darker':   scale-color($color-foreground, $lightness: map-get($lightness-variants, 'darker')),
+		'darkest':  scale-color($color-foreground, $lightness: map-get($lightness-variants, 'darkest')),
+	),
+	'accent': (
+		'base': $color-accent,
+		'light': desaturate(darken($color-primary, 41), 70),
+		'lighter': desaturate(darken($color-primary, 28), 55)
+	),
+	'background': (
+		'light': #eee,
+		'base': #E9EDF0, // equal to rgba(darken(#D2D7D3, 40), 0.5) placed over a white background
+		'dark': #1B2224,
+	),
+	'success': (
+		'base': $green
+	),
+	'danger': (
+		'base': $red
+	)
+);

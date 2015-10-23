@@ -1,0 +1,33 @@
+exclude: ['node_modules', '_resources', 'gulp', 'extras.txt']
+
+
+host: "localhost"
+url: "http://localhost:3000"
+baseurl: ""
+
+
+javascripts: "//localhost:3000/assets/javascripts"
+stylesheets: "//localhost:3000/assets/stylesheets"
+images: "//localhost:3000/assets/images"
+
+
+social:
+  twitter:
+    link: 'https://twitter.com/'
+    handle: '@'
+
+  github:
+    link: 'https://github.com/'
+    name: ''
+
+
+defaults:
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+    values:
+      layout: "default"
+      description: ''
+
+
+permalink: /:year/:title

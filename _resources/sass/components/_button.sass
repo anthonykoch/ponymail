@@ -1,0 +1,160 @@
+/**
+ * file: _button.sass
+ * Contains styles for buttons
+ */
+
+$button__background: mix(color('secondary'), color('background'), 90)
+$button__foreground: rgba(white, 0.95)
+$button__background--active: #B36548
+$button__foreground--active: rgba(white, 0.8)
+$button__font-size: 12px
+
+
+
+
+.button
+	align-items: center
+	background-color: white
+	border: 0
+	border-radius: 3px
+	box-shadow: 0 3px 6px 0 rgba(black, 0.18), 0 6px 12px 0 rgba(black, 0.1)
+	cursor: pointer
+	letter-spacing: 0.5px
+	font-size: $button__font-size
+	font-weight: normal
+	justify-content: center
+	outline: 0
+	padding: 8px 40px
+	position: relative
+	transition: background 0.1s, box-shadow 0.1s
+	user-select: none
+	vertical-align: middle
+	will-change: box-shadow, background, color
+
+	&:link, &:visited
+		color: $button__foreground
+
+	&:active
+		box-shadow: 0 4px 8px 0 rgba(black, 0.1), 0 10px 20px 0 rgba(black, 0.05)
+
+.button--default
+	background-color: $blue
+	color: white
+
+.button--primary
+	background-color: $button__background
+	color: $button__foreground
+
+	&:active
+		background-color: $button__background--active
+
+	&:hover
+		background-color: $button__background--active
+
+.button--large
+	padding: ($baseline * 0.75) 30px
+
+.button--medium
+	padding: ($baseline * 0.5) 40px
+
+.button--reset
+	border: 0
+	background-color: transparent
+	outline: 0
+
+
+
+
+
+.button-group
+	> button:not(:last-child)
+		margin-right: 5px
+
+
+
+
+/**
+ * Class for an icon that is placed inside a button
+ *
+ * 1. Override or else alignment will be off
+ * 2. Positioned relative so that an inner element (icon, etc.)
+ * 			can be positioned absolute.
+ */
+.button__icon
+	display: inline-block
+	font-size: 1.75em
+	line-height: inherit !important
+	letter-spacing: 0px /* [1] */
+	position: relative /* [2] */
+	text-align: center
+	vertical-align: top
+
+	&--right
+		margin-left: 10px
+
+	&--left
+		margin-right: 10px
+
+	&--small
+		font-size: 1em
+		width: 1.125em
+
+	&--medium
+		font-size: 1.75em
+		width: 1.875em
+
+	&--large
+		font-size: 2em
+		width: 2.25em
+
+	&--close
+		color: color('danger')
+
+
+
+
+/**
+ * 1. Override or else alignment will be off
+ */
+.button__notification
+	$size: 26px
+	border-radius: 50%
+	display: inline-block
+	font-size: rem(10px)
+	font-weight: normal
+	letter-spacing: 0px /* [1] */
+	line-height: $size
+	text-align: center
+	vertical-align: middle
+	+size($size)
+
+	&--default
+		$border-width: 2px
+		background-color: transparent
+		border: $border-width solid rgba(white, 0.3)
+		line-height: rem($size - ($border-width * 2))
+		+size($size)
+
+	&--alert
+		background-color: $red
+		color: white
+
+	&--close
+		color: color('danger')
+		font-size: 20px
+		visibility: hidden
+
+
+
+// Need to make a
+.button:hover
+	.button__notification--close
+		visibility: visible !important
+
+
+
+
+@media screen and (max-width: 700px)
+
+	.button
+		width: 100%

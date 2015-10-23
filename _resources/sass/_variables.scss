@@ -1,0 +1,49 @@
+$susy: (columns: 12, gutters: (1/4), math: fluid, output: float, gutter-position: split);
+
+$z-indexes: (
+	'default': 1,
+	'below': -1,
+	'details-header': 10,
+	'sidebar': 20,
+	'hamburger': 30,
+	'overlay': 5000,
+	'modal': 5001,
+);
+
+/**
+ * Breakpoints
+ */
+$app-breakpoints: (
+	'xxxlarge': 2000px,
+	'xxlarge': 1600px,
+	'xlarge': 1200px,
+	'large': 800px,
+	'medium': 600px,
+	'small': 320px,
+);
+
+/**
+ * _grid.sass settings
+ * @type {[type]}
+ */
+$breakpoints: (
+    'small' '(max-width: 480px)',
+    'palm' '(max-width: 600px)',
+    'lap' '(min-width: 601px) and (max-width: 1023px)',
+    'portable' '(max-width: 1023px)',
+    'desk' '(min-width: 1024px)'
+) !default;
+
+$opacities: (
+	'heavy': 0.2,
+	'medium': 0.5,
+	'light': 0.8,
+);
+
+$spacing: 30px;
+
+$icon__font-size: 20px;
+$sidebar__text-color: #637074;
+$sidebar__icon-size: 27px;
+$sidebar__link__padding: 12px 15px;
+$sidebar__width: 194px;

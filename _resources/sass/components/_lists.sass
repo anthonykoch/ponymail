@@ -1,0 +1,49 @@
+/**
+ * file: _lists.sass
+ * Contains styles for various types of lists
+ */
+
+
+
+
+
+.ui-list
+	counter-reset: list-counter
+	margin-bottom: baseline / 2
+
+.ui-list__item
+	margin-bottom: $baseline / 2
+
+
+
+
+/**
+ * An ordered list with numbers and a decimal
+ *
+ * 1. Positioned relative for pseudo element
+ */
+.ui-list--number
+	padding-left: 1.3em
+
+	> li
+		position: relative /* [1] */
+
+	> li:before
+		content: counter(list-counter, decimal) "."
+		counter-increment: list-counter
+		font-weight: bold
+		left: -1.5em
+		position: absolute
+
+// Creates a bulleted list
+.ui-list--bullet
+	list-style-type: disc
+	padding-left: 1em
+
+
+
+
+@media screen and (max-width: breakpoint('medium'))
+
+	.ui-list
+		margin-left: 0px

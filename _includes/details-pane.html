@@ -1,0 +1,53 @@
+<section class="details-pane">
+
+	<div class="details-pane__header">
+		<div class="details-pane__top  [ flex flex--justify-between flex--items-center ]">
+			<h1 class="details-pane__heading">
+				Inbox
+			</h1>
+			<div class="flex flex--nowrap flex--items-center">
+				<input type="search" id="inbox-search">
+			</div>
+		</div>
+
+		<div class="options">
+
+			<ul class="options__list">
+				<li class="[ options__list__item options__list__item--task ]">
+					<i class="ion ion-reply"></i>
+				</li>
+				<li class="[ options__list__item options__list__item--task ]">
+					<i class="ion ion-heart"></i>
+				</li>
+				<li class="[ options__list__item options__list__item--task ]">
+					<i class="ion ion-trash-b"></i>
+				</li>
+				<li class="[ options__list__item options__list__item--task ]">
+					<i class="ion ion-arrow-down-b"></i>
+				</li>
+			</ul>
+
+			<ul class="options__list">
+				<li class="options__list__item  options__list__item--sort">
+					A-Z
+				</li>
+				<li class="options__list__item  [ options__list__item--sort options__list__item--sort--active ]">
+					Recent
+				</li>
+			</ul>
+
+		</div>
+	</div>
+
+
+	<div class="details-pane__view">
+
+		{% comment %}
+			The #inbox element could be switched out for something else, and the details pane would retain its dimensions.
+		{% endcomment %}
+
+		<ul id="inbox" class="inbox"></ul>
+
+	</div>
+
+</section>

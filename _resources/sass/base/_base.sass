@@ -1,0 +1,153 @@
+/**
+ * file: _base.sass
+ * Contains base styles for tags
+ */
+
+$body__font-family: Montserrat, Open Sans, sans-serif;
+
+
+
+
+html
+	box-sizing: border-box
+
+*, *:before, *:after
+	box-sizing: inherit
+	margin: 0
+	padding: 0
+
+
+html
+	font-size: rem($base__font-size)
+	font-family: $body__font-family
+	line-height: rem($base__line-height)
+
+body
+	background-color: white
+	color: color('foreground')
+	min-height: 100vh
+	text-rendering: optimizeLegibility
+	-webkit-text-size-adjust: 100%
+	-webkit-font-smoothing: antialiased
+	-moz-osx-font-smoothing: grayscale
+	margin: 0
+	padding: 0
+
+
+
+
+#{$headings}
+	font-size: 1rem
+	font-weight: bold
+
+@each $heading, $details in $heading-typography
+	$font-size:      map-get($details, 'font-size')
+	$line-height:    map-get($details, 'line-height')
+	$margin-bottom:  map-get($details, 'margin-bottom')
+	$padding-top:    map-get($details, 'padding-top')
+	$padding-bottom: map-get($details, 'padding-bottom')
+
+	#{$heading}
+		font-size:   $font-size
+		line-height: $line-height
+		padding: 0
+		margin:  0
+		margin-bottom:  map-get($details, 'margin-bottom')
+		padding-top:    map-get($details, 'padding-top')
+		padding-bottom: map-get($details, 'padding-bottom')
+
+h5
+	text-transform: uppercase
+	letter-spacing: 1px
+
+
+
+
+a
+	$color: $blue
+	text-decoration: none
+
+	&:link, &:visited
+		color: $color
+
+	&:hover
+		$desaturation: 20
+		$darken: 4
+		color: desaturate(darken($color, $darken), $desaturation)
+
+
+
+
+p
+	margin-bottom: $baseline * 1.25
+	line-height: 1.5
+	text-shadow: 0 0 1px rgba(black, 0.2)
+
+
+
+
+dt
+	color: color('foreground', 'dark')
+	font-weight: 600
+
+dd
+	margin-left: 30px
+	margin-bottom: 15px
+	color: lighten(color('foreground'), 8)
+
+
+
+
+q
+	font-style: italic
+
+
+
+
+img
+	display: block
+	max-width: 100%
+
+
+
+
+ul, ol
+	margin: 0
+	padding: 0
+	list-style-type: none
+
+
+
+blockquote
+	border-left: 4px solid $red
+	padding: 10px 20px 10px 40px
+	font-style: italic
+	font-weight: bold
+	font-size: 1.125em
+	margin-bottom: $baseline * 1.25
+
+	> p
+		margin-bottom: 0
+		padding-bottom: 0
+
+
+
+
+:invalid,
+:-moz-submit-invalid,
+:-moz-ui-invalid
+  box-shadow: none
+
+
+
+
+@media screen and (max-width: breakpoint('medium'))
+	dd
+		margin-left: 20px
+
+
+
+
+@media screen and (max-width: breakpoint('medium'))
+	body
+		font-size: 1rem

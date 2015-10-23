@@ -1,0 +1,26 @@
+/**
+ * file: _inbox.sass.sass
+ */
+
+/**
+ * The inbox list
+ */
+.inbox
+	position: relative
+
+/**
+ * Padding is set on each individual sub element
+ * rather than here so that the checkbox can be full width
+ * and height
+ * the checkbox wrapper can be clicked without worrying about
+ * previewing the email
+ */
+.inbox__item
+	@extend .email-list__item
+
+	&--unread
+		border-color: rgba($green, 0.1)
+		background-color: rgba($green, 0.18) !important
+
+		.email-list__item__person
+			font-weight: bold

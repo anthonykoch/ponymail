@@ -1,0 +1,240 @@
+/**
+ * file: _home.sass
+ */
+
+$details-pane__max-width: 650px
+$preview-pane__min-width: 400px;
+$header__height: 184px
+
+
+
+
+body
+	overflow: hidden
+
+
+
+
+#mobile-checkbox:checked + .sidebar
+	transform: translateY(0%)
+
+#mobile-toggle
+	$height: 53px
+	$width: $height
+	cursor: pointer
+	display: none
+	font-size: 2rem
+	text-align: center
+	line-height: $height
+	position: absolute
+	right: 0px
+	+size($width $height)
+
+
+
+
+.home-wrapper
+	display: flex
+	height: 100vh
+	min-height: 100vh
+	overflow: auto
+	overflow-y: hidden
+	position: relative
+
+
+
+
+/**
+ * The preview pane, which is the pane on the right
+ */
+.preview-pane
+	background-color: white
+	border-left: 1px solid rgba($icon-color, 0.3)
+	flex: 1
+	height: 100vh
+	overflow: auto
+	width: 50%
+
+.preview-pane__header
+	background-color: white
+	padding: 20px 20px 10px
+	border-bottom: 1px solid rgba($icon-color, 0.3)
+	min-height: $header__height
+	min-width: $preview-pane__min-width
+	max-width: 100%
+
+.preview-pane__heading
+	font-size: 4rem
+	font-weight: normal
+	margin-bottom: 20px
+
+.preview-pane__meta
+	align-items: center
+	font-size: 13px
+	line-height: 20px
+
+.preview-pane__meta__item
+	vertical-align: middle
+	padding: 0 10px
+	display: inline-block
+
+.preview-pane__meta__item--more
+	color: $icon-color
+	cursor: pointer
+	font-size: 20px
+
+
+
+
+.preview-pane__body
+	min-width: $preview-pane__min-width
+	max-width: 100%
+	padding: 40px 30px
+
+	// Technically, these are email specific styles
+	font-family: Merriweather
+	font-size: 1.125rem
+
+
+
+
+/**
+ * The details pane, which is the middle pane
+ */
+.details-pane
+	flex: 1
+	flex-basis: $details-pane__max-width
+	display: flex
+	height: 100vh
+	max-width: $details-pane__max-width
+
+.details-pane__header
+	background-color: white
+	position: fixed
+	width: 50%
+	min-width: $details-pane__max-width
+	max-width: $details-pane__max-width
+	z-index: zindex('details-header')
+
+.details-pane__heading
+	padding: 0
+
+.details-pane__top
+	height: 133px
+	padding: 0 40px
+
+/**
+ *
+ */
+.details-pane__view
+	overflow-y: auto
+	margin-top: $header__height // header height
+	width: 100%
+
+
+
+
+.options
+	$font-size: 13px
+	display: flex
+	border-bottom: 1px solid rgba($icon-color, 0.3)
+	justify-content: space-between
+	padding: 0 $spacing
+	width: 100%
+
+.options__list
+	display: flex
+	margin-bottom: -1px
+	align-items: baseline
+
+.options__list__item:not(:last-child)
+	border-bottom: 1px solid transparent
+	color: $icon-color
+	cursor: pointer
+	padding: 15px 20px 15px 0
+	user-select: none
+
+	&:hover
+		color: color('foreground')
+
+/**
+ * The inbox task options, such as "reply to", "favorite", and "trash"
+ */
+.options__list__item--task
+	font-size: 18px
+	line-height: $baseline
+
+/**
+ * The inbox sorting options
+ */
+.options__list__item--sort
+	color: $icon-color
+	cursor: pointer
+	font-size: 13px
+
+	&:last-child
+		margin-right: 0
+
+	&--active
+		border-color: color('foreground')
+		color: color('foreground')
+
+
+
+
+@media screen and (max-width: 1200px)
+	.home-wrapper
+		flex-wrap: block
+		height: auto
+		overflow: auto
+
+
+
+
+	.details-pane__view
+		padding-top: 0
+
+
+
+
+
+
+@media screen and (max-width: 1000px)
+
+	.details-pane
+		flex-basis: 100%
+		flex-direction: row
+		min-width: 100%
+		width: 100%
+		z-index: zindex('default')
+
+	.details-pane__header
+		min-width: 100%
+
+	.details-pane__top
+		padding: 0 5%
+		display: none
+
+	.details-pane__view
+		margin-top: 51px
+		width: 100%
+
+
+
+
+	.preview-pane
+		flex: 0
+		display: none
+
+
+
+
+	.options
+		padding-right: $spacing + 30px // make way for the hamburger menu
+
+
+
+
+	#mobile-toggle
+		display: block
+		z-index: zindex('hamburger')

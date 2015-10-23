@@ -1,0 +1,70 @@
+/**
+ * Contains utility functions
+ */
+
+/**
+ * Returns a color from the colors map
+ * @type {Color}
+ */
+@function color($key: 'primary', $variant: 'base')
+	$color: null
+	$color-spectrum: map-get($colors, $key)
+
+	@if $color-spectrum
+		$color: map-get($color-spectrum, $variant)
+	@return $color
+
+
+@function variant($color, $variant)
+	$lightness: map-get($lightness-variants, $variant)
+	@return scale-color($color, $lightness: $lightness)
+
+
+/**
+ * Returns a breakpoint number from the breakpoints map
+ * @param  {String} $key
+ * @return {Number}
+ */
+@function breakpoint($key)
+	@return map-get($app-breakpoints, $key)
+
+
+
+
+@function zindex($key)
+	@return map-get($z-indexes, $key)
+
+
+
+
+/**
+ * Returns the typography details for the specified
+ * heading element.
+ * @param  {String} $prop
+ * @param  {String} $heading
+ * @return {*}
+ */
+@function heading($prop, $heading)
+	@return map-get(map-get($heading-typography, $heading), $prop)
+
+
+
+
+/**
+ * Get an opacity level from settings
+ * @param  {String} $level
+ * @return {Number}
+ */
+@function opacity($level)
+	@return map-get($opacities, $level)
+
+
+
+
+/**
+ * Get an opacity level from settings
+ * @param  {String} $level
+ * @return {Number}
+ */
+@function opacity($level)
+	@return map-get($opacities, $level)

@@ -1,0 +1,220 @@
+/**
+ * file: _email.sass
+ * Contains styles for an inbox email item.
+ */
+
+$email-list__item__checkbox-size: 35px
+
+
+
+
+.email-list__item__labels
+	padding: 0
+	margin: 0
+	display: inline-block
+
+/**
+ * Padding is set on each individual sub element
+ * rather than here so that the checkbox can be full width
+ * and height
+ * the checkbox wrapper can be clicked without worrying about
+ * previewing the email
+ */
+
+.email-list__item
+	align-items: center
+	cursor: pointer
+	display: flex
+	font-size: 0.9rem
+	outline: 0
+	padding: 0 $spacing 0 0 /* [1] */
+	user-select: none
+	width: 100%
+
+	&:nth-child(odd)
+		background-color: darken(white, 3)
+
+	&:hover
+		background-color: color('background')
+
+.email-list__item-container
+	display: flex
+	flex: 1
+
+.email-list__item__checkbox-wrapper
+	$top: $baseline
+	$side: $spacing
+	display: inline-block
+	padding: $top $side
+
+.email-list__item__checkbox
+	cursor: pointer
+	display: block
+	flex: 1
+	position: relative
+
+	&:before,
+	&:after
+		border-radius: 50%
+		color: white
+		content: ''
+		display: block
+		font-size: $font-size
+		text-align: center
+		transition: transform 0.1s
+
+	&:before
+		transform: scale(0)
+		background-color: $green
+		position: absolute
+		line-height: $email-list__item__checkbox-size + 1 !important
+		+size($email-list__item__checkbox-size)
+
+
+	&:after
+		$font-size: 10px
+		border: 2px solid $green
+		border-radius: 50%
+		content: ''
+		+size($email-list__item__checkbox-size)
+
+.email-list__item__checkbox--checked
+	&:before
+		@extend .pseudo-ion
+		content: '\f122'
+		transform: scale(1)
+
+.email-list__item__person
+	min-width: 150px
+
+.email-list__item__title
+	align-items: center
+	display: flex
+	min-width: 180px
+	overflow: hidden
+	text-overflow: '...'
+	white-space: nowrap
+
+.email-list__item__date
+	flex: 1
+
+.email-list__item__person,
+.email-list__item__title,
+.email-list__item__date
+	margin-right: 20px
+	font-size: 0.875em
+	padding: $baseline 0
+
+.email-list__item__title,
+.email-list__item__date
+	color: color('foreground', 'light')
+
+.email-list__item__date
+	text-align: right
+	margin-right: 0
+	align-self: center
+
+.email-list__item__label
+	background-color: $blue
+	border-radius: 2px
+	color: rgba(white, 0.9)
+	font-size: 0.7em
+	font-weight: bold
+	line-height: 1.5
+	padding: 2px 4px
+	text-transform: uppercase
+	margin-right: 4px
+	vertical-align: bottom
+
+
+
+
+@media screen and (max-width: 1000px)
+
+	.email-list__item
+		&__person,
+		&__title,
+		&__date
+			margin-right: 25px
+
+
+
+
+@media screen and (max-width: 700px)
+	.email-list__item
+		$side-padding: $spacing
+		padding: $baseline $side-padding
+
+		&-container
+			display: flex
+			flex-wrap: wrap
+			justify-content: space-between
+
+		&__date
+			text-align: right
+
+		&__person,
+		&__title,
+		&__date
+			flex: initial
+			margin-right: 0
+			padding: 0
+			min-width: initial
+
+		&__title
+			width: 180px
+
+		&__person
+			min-width: 140px
+			padding-right: 20px
+
+		&__checkbox-wrapper
+			padding: 0 ($side-padding / 2) 0 0
+
+
+
+
+/**
+ * 1. IE needs this
+ */
+@media screen and (max-width: 480px)
+	.email-list__item__labels
+		display: none
+
+	.email-list__item
+		+padding($baseline / 1.5 ($spacing / 2))
+
+		&-container
+			display: flex
+			flex-wrap: nowrap
+			justify-content: space-between
+			overflow: hidden
+			width: 100%
+
+		&__person,
+		&__title,
+		&__date
+			flex: initial
+			font-size: 0.85em
+			margin-right: 0
+			margin-bottom: 2px
+			min-width: initial
+			padding: 0
+			text-align: left
+
+		&__date
+			$width: 60px
+			width: 50%
+			max-width: $width
+			text-align: right
+			min-width: $width /* [1] */
+
+		&__person
+			width: 50%
+			min-width: 140px
+			overflow: initial
+
+		&__title
+			order: 3
+			width: 100%
+			word-wrap: wrap
