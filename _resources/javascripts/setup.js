@@ -93,8 +93,7 @@ loadEmail({
 			The
 			<a href="https://dribbble.com/shots/1283529-The-Pony-Express-Mail/attachments/177620">
 				design
-			</a>
-			<strong>wasn't mine</strong>, but was made by Victor Erixon.
+			</a> was made by Victor Erixon, but I thought it would be a fun exercise to turn his design into HTML and CSS.
 
 		</p>
 		<p>
