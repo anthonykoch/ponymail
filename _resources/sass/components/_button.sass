@@ -17,7 +17,6 @@ $button__font-size: 12px
 	background-color: white
 	border: 0
 	border-radius: 3px
-	box-shadow: 0 3px 6px 0 rgba(black, 0.18), 0 6px 12px 0 rgba(black, 0.1)
 	cursor: pointer
 	letter-spacing: 0.5px
 	font-size: $button__font-size
@@ -33,9 +32,6 @@ $button__font-size: 12px
 
 	&:link, &:visited
 		color: $button__foreground
-
-	&:active
-		box-shadow: 0 4px 8px 0 rgba(black, 0.1), 0 10px 20px 0 rgba(black, 0.05)
 
 .button--default
 	background-color: $blue
@@ -62,6 +58,12 @@ $button__font-size: 12px
 	background-color: transparent
 	outline: 0
 
+
+
+
+.button:hover
+	.button__icon--close
+		visibility: visible !important
 
 
 
@@ -107,49 +109,9 @@ $button__font-size: 12px
 		font-size: 2em
 		width: 2.25em
 
-	&--close
-		color: color('danger')
-
-
-
-
-/**
- * 1. Override or else alignment will be off
- */
-.button__notification
-	$size: 26px
-	border-radius: 50%
-	display: inline-block
-	font-size: rem(10px)
-	font-weight: normal
-	letter-spacing: 0px /* [1] */
-	line-height: $size
-	text-align: center
-	vertical-align: middle
-	+size($size)
-
-	&--default
-		$border-width: 2px
-		background-color: transparent
-		border: $border-width solid rgba(white, 0.3)
-		line-height: rem($size - ($border-width * 2))
-		+size($size)
-
-	&--alert
-		background-color: $red
-		color: white
-
-	&--close
-		color: color('danger')
-		font-size: 20px
-		visibility: hidden
-
-
-
-// Need to make a
-.button:hover
-	.button__notification--close
-		visibility: visible !important
+.button__icon--close
+	color: color('danger')
+	visibility: hidden
 
 
 

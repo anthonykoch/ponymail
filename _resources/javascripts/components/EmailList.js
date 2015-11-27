@@ -27,7 +27,7 @@ var MailboxList = function (props, state) {
 				var { id, sender, recipients, title, labels=[], date, isRead } = email;
 				var formattedDate = this.formateDate(date);
 				var labelItems = labels.map(function (label) {
-					return (<li className="email-list__item__label" key={label}>{label}</li>);
+					return (<li className="label" key={label}>{label}</li>);
 				});
 
 				var classes = {

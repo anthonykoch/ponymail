@@ -19,6 +19,7 @@
 		{{ content }}
 	</div>
 
+ 	{% if page.url != '/page.html' %}
 	<script>
 		var __initialEmails  = {{ site.data.inbox | jsonify }};
 		var __initialLabels  = {{ site.data.labels | jsonify }};
@@ -28,5 +29,6 @@
 
 	<script src="{{ site.javascripts }}/vendor.js"></script>
 	<script src="{{ site.javascripts }}/app.js"></script>
+	{% endif %}
 </body>
 </html>

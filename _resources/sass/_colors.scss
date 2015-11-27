@@ -12,7 +12,6 @@ $icon-color: #B0BDC0;
 $color-primary: $red;
 $color-secondary: $red;
 $color-foreground: #323B3D;
-$color-accent: desaturate(darken($color-primary, 41), 70);
 
 
 
@@ -35,26 +34,21 @@ $colors: (
 	),
 	'secondary': (
 		'base': $color-secondary,
-		'lightest': scale-color($color-secondary, $lightness: map-get($lightness-variants, 'lightest')),
-		'lighter':  scale-color($color-secondary, $lightness: map-get($lightness-variants, 'lighter')),
-		'light':    scale-color($color-secondary, $lightness: map-get($lightness-variants, 'light')),
-		'dark':     scale-color($color-secondary, $lightness: map-get($lightness-variants, 'dark')),
-		'darker':   scale-color($color-secondary, $lightness: map-get($lightness-variants, 'darker')),
-		'darkest':  scale-color($color-secondary, $lightness: map-get($lightness-variants, 'darkest')),
+		'lightest': scale-color($color-secondary, $lightness: lightness('lightest')),
+		'lighter':  scale-color($color-secondary, $lightness: lightness('lighter')),
+		'light':    scale-color($color-secondary, $lightness: lightness('light')),
+		'dark':     scale-color($color-secondary, $lightness: lightness('dark')),
+		'darker':   scale-color($color-secondary, $lightness: lightness('darker')),
+		'darkest':  scale-color($color-secondary, $lightness: lightness('darkest')),
 	),
 	'foreground': (
 		'base':     $color-foreground,
-		'lightest': scale-color($color-foreground, $lightness: map-get($lightness-variants, 'lightest')),
-		'lighter':  scale-color($color-foreground, $lightness: map-get($lightness-variants, 'lighter')),
-		'light':    scale-color($color-foreground, $lightness: map-get($lightness-variants, 'light')),
-		'dark':     scale-color($color-foreground, $lightness: map-get($lightness-variants, 'dark')),
-		'darker':   scale-color($color-foreground, $lightness: map-get($lightness-variants, 'darker')),
-		'darkest':  scale-color($color-foreground, $lightness: map-get($lightness-variants, 'darkest')),
-	),
-	'accent': (
-		'base': $color-accent,
-		'light': desaturate(darken($color-primary, 41), 70),
-		'lighter': desaturate(darken($color-primary, 28), 55)
+		'lightest': scale-color($color-foreground, $lightness: lightness('lightest')),
+		'lighter':  scale-color($color-foreground, $lightness: lightness('lighter')),
+		'light':    scale-color($color-foreground, $lightness: lightness('light')),
+		'dark':     scale-color($color-foreground, $lightness: lightness('dark')),
+		'darker':   scale-color($color-foreground, $lightness: lightness('darker')),
+		'darkest':  scale-color($color-foreground, $lightness: lightness('darkest')),
 	),
 	'background': (
 		'light': #eee,

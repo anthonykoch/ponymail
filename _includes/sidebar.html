@@ -11,25 +11,23 @@
 		</div>
 	</div>
 
-	<ul class="[ ui-list ]">
-	{% for item in site.data.sidebar %}
-	<li>
-		<button id="{{ item.id }}" class="[ sidebar__button  {% if item.title == 'Inbox' %} sidebar__button--active {% endif %} ]  [ button ]">
+	<ul>
+		{% for item in site.data.buttons %}
+		<li>
+			<button id="{{ item.id }}" class="[ sidebar__button  {% if item.title == 'Inbox' %} sidebar__button--active {% endif %} ]  [ button ]">
 
-			<span class="[ flex flex--items-center flex--justify-between ]">
-				<span>
-					<i class="u-align-middle  button__icon button__icon--medium  [ ion {{ item.icon }} ]"></i>
-					<span class="u-align-middle">{{ item.title }}</span>
+				<span class="[ flex flex--items-center flex--justify-between ]">
+					<span>
+						<i class="u-align-middle  button__icon button__icon--medium  [ ion {{ item.icon }} ]"></i>
+						<span class="u-align-middle">{{ item.title }}</span>
+					</span>
+					<span class="button__notification  button__notification--right button__notification--{{ item.notificationType }}">
+							{{ item.text }}
+					</span>
 				</span>
-				<span
-					class="button__notification  button__notification--right
-						{% if item.title == 'Drafts' %} button__notification--bordered {% endif %}">
-						{% if item.title == 'Drafts' %} 4 {% endif %}
-				</span>
-			</span>
-		</button>
-	</li>
-	{% endfor %}
+			</button>
+		</li>
+		{% endfor %}
 	</ul>
 
 	<div class="sidebar__separator"></div>
@@ -40,6 +38,21 @@
 			<label id="sidebar__add-label" for="sidebar__label-input" class="[ ion ion-plus ]  sidebar__heading-action"></label>
 			<input id="sidebar__label-input" class="is-hidden" type="text" placeholder="New Label">
 		</h5>
-		<ul id="sidebar__labels"></ul>
+		<ul id="sidebar__labels">
+
+			{% for item in site.data.labels | limit:4 %}
+				<li class="labels__item  button  button--reset">
+					<span class="[ flex flex--justify-between flex--items-center ]">
+						<button class="toggle-label  button--reset">
+							<span class="[ button__icon button__icon--medium ]">
+								<span class="labels__item__icon {% if item.title == 'Fashion' %} labels__item__icon--active {% endif %}">&nbsp;</span>
+							</span>
+							<span>{{ item.title }}</span>
+						</button>
+						<button class="[ button--reset  button__icon--close button__notification button__notification--close ]  ion-ios-close-empty"></button>
+					</span>
+				</li>
+			{% endfor %}
+		</ul>
 	</div>
 </aside>

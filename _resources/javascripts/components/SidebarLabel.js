@@ -39,7 +39,9 @@ var SidebarLabel = function (props) {
 						<button
 							ref="close"
 							onClick={this.removeLabel.bind(this)}
-							className="[ button--reset  button__icon--close button__notification button__notification--close ]  ion-ios-close-empty"></button>
+							className="[ button--reset ]">
+							<span className="[ button__icon button__icon--close ]  ion-ios-close-empty"></span>
+						</button>
 					</span>
 				</li>
 			);

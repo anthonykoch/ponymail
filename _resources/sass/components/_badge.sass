@@ -1,0 +1,31 @@
+/**
+ * file: _badge.sass
+ */
+
+/**
+ * 1. Overrides the letter spacing because letter spacing will throw off
+ * the badge text horizontal centering by however many pixels its parent's
+ * letter spacing has.
+ */
+.badge
+	$size: 26px
+	border-radius: 50%
+	display: inline-block
+	font-size: rem(10px)
+	font-weight: normal
+	letter-spacing: 0px /* [1] */
+	line-height: $size
+	text-align: center
+	vertical-align: middle
+	+size($size)
+
+	&--default
+		$border-width: 2px
+		background-color: transparent
+		border: $border-width solid rgba(white, 0.3)
+		line-height: rem($size - ($border-width * 2))
+		+size($size)
+
+	&--alert
+		background-color: $red
+		color: white

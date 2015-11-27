@@ -41,12 +41,37 @@
 
 
 	<div class="details-pane__view">
-
-		{% comment %}
+		<!--
 			The #inbox element could be switched out for something else, and the details pane would retain its dimensions.
-		{% endcomment %}
+		 -->
+		<ul id="inbox" class="inbox  email-list">
 
-		<ul id="inbox" class="inbox"></ul>
+			{% for item in site.data.inbox %}
+
+			<li class="email-list__item">
+				<div ref="checkboxWrapper" class="email-list__item__checkbox-wrapper">
+					<label class="email-list__item__checkbox">
+						<input class="is-hidden" type="checkbox" />
+					</label>
+				</div>
+
+				<div class="email-list__item-container">
+					<div class="flex  u-overflow-x-hidden">
+						<div class="email-list__item__person">{{ item.sender }}</div>
+						<div class="email-list__item__title">
+							<ul class="email-list__item__labels">
+								{% for label in item.labels %}
+									<li class="email-list__item__label">{{ label }}</li>
+								 {% endfor %}
+							</ul>
+							{{ item.title }}
+						</div>
+					</div>
+					<div class="email-list__item__date">{{ item.dateFormatted }}</div>
+				</div>
+			</li>
+			{% endfor %}
+		</ul>
 
 	</div>
 

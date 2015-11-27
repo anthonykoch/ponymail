@@ -2,23 +2,30 @@
   icon: ion-ios-filing
   id: inboxButton
   path: /inbox
+  text: 8
+  notificationType: alert
 
 - title: Favorites
   icon: ion-heart
   id: favoritesButton
   path: /favorites
+  text: ''
 
 - title: Sent
   icon: ion-paper-airplane
   id: sentButton
   path: /sent
+  text: ''
 
 - title: Drafts
   icon: ion-document-text
   id: draftsButton
   path: /drafts
+  text: 4
+  notificationType: default
 
 - title: Trash
   icon: ion-trash-b
   id: trashButton
   path: /trash
+  text: ''

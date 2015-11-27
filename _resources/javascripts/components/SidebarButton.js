@@ -37,8 +37,8 @@ function SidebarButton(props) {
 					'sidebar__button--active': active,
 				}),
 				notification: classNames({
-					'button__notification--active': active,
-					['button__notification--' + notificationType]: typeof notificationType === 'string'
+					'badge--active': active,
+					['badge--' + notificationType]: typeof notificationType === 'string'
 				})
 			};
 			var styles = {
@@ -63,7 +63,7 @@ function SidebarButton(props) {
 						</span>
 						<span
 							style={styles.notification}
-							className={`button__notification  button__notification--right  ${classes.notification}`}>
+							className={`badge  badge--right  ${classes.notification}`}>
 								{notification}
 						</span>
 					</span>

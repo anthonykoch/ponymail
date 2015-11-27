@@ -15,10 +15,8 @@
 	@return $color
 
 
-@function variant($color, $variant)
-	$lightness: map-get($lightness-variants, $variant)
-	@return scale-color($color, $lightness: $lightness)
-
+@function lightness($name)
+	@return map-get($lightness-variants, $name)
 
 /**
  * Returns a breakpoint number from the breakpoints map

@@ -2,7 +2,6 @@
 
 import AppDispatcher from './../dispatcher/AppDispatcher';
 import LabelConstants from './../constants/LabelConstants';
-import moment from 'moment';
 import Store from './Store';
 
 

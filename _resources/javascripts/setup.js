@@ -121,7 +121,7 @@ loadEmail({
 	date: '2014-11-17 10:25',
 	labels: [],
 	id: createUID(),
-	body: '<div class="montserrat"><p>keep on hacking...</p></div>'
+	body: '<div class="montserrat"><p>Keep on hacking!</p></div>'
 }, 10000);
 
 loadEmail({
