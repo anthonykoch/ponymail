@@ -3,7 +3,6 @@
  * Contains styles for modal elements
  */
 
-
 .modal-overlay
 	background-color: rgba(black, 0.15)
 	z-index: zindex('modal')
@@ -14,7 +13,7 @@
 	border-top: 8px solid transparent
 	max-width: 600px
 	min-width: 600px
-	padding: ($baseline * 2)
+	padding: ($base-spacing * 2)
 	position: absolute
 	left: 50%
 	right: 50%
@@ -25,13 +24,13 @@
 
 .modal__header
 	border-bottom: 1px solid rgba(black, 0.18)
-	margin-bottom: $baseline * 2.5
+	margin-bottom: $base-spacing * 2.5
 
 .modal__title
 	font-size: 1.5rem
 	font-weight: normal
-	padding: 0 0 ($baseline * 0.75) 0
+	padding: 0 0 ($base-spacing * 0.75) 0
 
 .modal__message
 	margin-bottom: 0
-	margin-bottom: $baseline * 4
+	margin-bottom: $base-spacing * 4

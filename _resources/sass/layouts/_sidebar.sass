@@ -23,9 +23,9 @@
 	height: 100vh
 	overflow-y: auto
 	overflow-x: hidden
-	width: $sidebar__width
-	min-width: $sidebar__width
-	flex-basis: $sidebar__width
+	width: $sidebar-width
+	min-width: $sidebar-width
+	flex-basis: $sidebar-width
 	z-index: zindex('sidebar')
 
 
@@ -44,7 +44,7 @@
 
 
 .sidebar__separator
-	background-color: rgba($sidebar__text-color, 0.2)
+	background-color: rgba($sidebar-text-color, 0.2)
 	height: 1px
 	margin-bottom: 10px
 	width: 100%
@@ -54,11 +54,11 @@
 
 .sidebar__heading
 	font-size: 13px
-	padding: $sidebar__link__padding
+	padding: $sidebar-link-padding
 	// padding-bottom: 0
 	text-transform: uppercase
 	letter-spacing: 0px
-	line-height: $sidebar__icon-size
+	line-height: $sidebar-icon-size
 	width: 100%
 
 
@@ -84,15 +84,15 @@
 	display: block
 	width: 100%
 	user-select: none
-	padding: $sidebar__link__padding
+	padding: $sidebar-link-padding
 	font-weight: bold
 
 	&:link, &:visited
-		color: $sidebar__text-color
+		color: $sidebar-text-color
 
 	&:hover, &:active
 		box-shadow: none
-		color: $sidebar__text-color
+		color: $sidebar-text-color
 		background-color: #20282A
 
 	&--active
@@ -145,7 +145,7 @@
 	.sidebar
 		flex: 0
 		transform: translateX(-100%)
-		width: $sidebar__width + 50
+		width: $sidebar-width + 50
 		+position(absolute, 0)
 
 	.sidebar__compose

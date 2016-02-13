@@ -3,10 +3,7 @@
  * Styles for the page header, page header navigation, and logo.
  */
 
-$site-nav__mobile-width: 250px
-
-
-
+$site-nav-mobile-width: 250px
 
 .page-header
 	pass
@@ -26,7 +23,7 @@ $site-nav__mobile-width: 250px
  * Overrides ionic icon display: inline-block
  */
 .mobile-toggle
-	$width: $baseline * 3
+	$width: $base-spacing * 3
 	$height: $width
 	color: #777
 	cursor: pointer
@@ -83,9 +80,9 @@ $site-nav__mobile-width: 250px
 		border-left: 8px solid #777
 		text-align: center
 		width: 100%
-		transform: translateX(-$site-nav__mobile-width)
+		transform: translateX(-$site-nav-mobile-width)
 		transition: transform 0.2s
-		max-width: $site-nav__mobile-width
+		max-width: $site-nav-mobile-width
 		z-index: zindex('navigation')
 		+position(absolute, 0)
 
@@ -101,7 +98,7 @@ $site-nav__mobile-width: 250px
 	.site-nav__link
 		border-width: 0px
 		display: block
-		padding: $baseline
+		padding: $base-spacing
 		width: 100%
 
 		&:hover, &:active

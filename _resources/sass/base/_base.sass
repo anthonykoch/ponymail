@@ -3,11 +3,6 @@
  * Contains base styles for tags
  */
 
-$body__font-family: Montserrat, Open Sans, sans-serif;
-
-
-
-
 html
 	box-sizing: border-box
 
@@ -16,11 +11,10 @@ html
 	margin: 0
 	padding: 0
 
-
 html
-	font-size: rem($base__font-size)
-	font-family: $body__font-family
-	line-height: rem($base__line-height)
+	font-size: rem($base-font-size)
+	font-family: $body-font-family
+	line-height: $base-line-height
 
 body
 	background-color: white
@@ -40,26 +34,32 @@ body
 #{$headings}
 	font-size: 1rem
 	font-weight: bold
+	margin: 0
+	+padding(1rem null)
 
-@each $heading, $details in $heading-typography
-	$font-size:      map-get($details, 'font-size')
-	$line-height:    map-get($details, 'line-height')
-	$margin-bottom:  map-get($details, 'margin-bottom')
-	$padding-top:    map-get($details, 'padding-top')
-	$padding-bottom: map-get($details, 'padding-bottom')
+h1
+	line-height: 1.1
+	font-size: 3rem
 
-	#{$heading}
-		font-size:   $font-size
-		line-height: $line-height
-		padding: 0
-		margin:  0
-		margin-bottom:  map-get($details, 'margin-bottom')
-		padding-top:    map-get($details, 'padding-top')
-		padding-bottom: map-get($details, 'padding-bottom')
+h2
+	line-height: 1.3
+	font-size: 2.75rem
+
+h3
+	font-size: 1.5rem
+	line-height: 1.4
+
+h4
+	font-size: 1.1rem
+	line-height: 1.4
 
 h5
-	text-transform: uppercase
+	font-size: .95rem
 	letter-spacing: 1px
+	text-transform: uppercase
+
+h6
+	font-size: .95rem
 
 
 
@@ -80,7 +80,7 @@ a
 
 
 p
-	margin-bottom: $baseline * 1.25
+	margin-bottom: $base-spacing * 1.25
 	line-height: 1.5
 	text-shadow: 0 0 1px rgba(black, 0.2)
 
@@ -119,13 +119,14 @@ ul, ol
 
 
 
+
 blockquote
 	border-left: 4px solid $red
 	padding: 10px 20px 10px 40px
 	font-style: italic
 	font-weight: bold
 	font-size: 1.125em
-	margin-bottom: $baseline * 1.25
+	margin-bottom: $base-spacing * 1.25
 
 	> p
 		margin-bottom: 0

@@ -2,9 +2,9 @@
  * file: _home.sass
  */
 
-$details-pane__max-width: 650px
-$preview-pane__min-width: 400px;
-$header__height: 184px
+$details-pane-max-width: 650px
+$preview-pane-min-width: 400px;
+$header-height: 184px
 
 
 
@@ -53,8 +53,8 @@ $header__height: 184px
 	background-color: white
 	padding: 20px 20px 10px
 	border-bottom: 1px solid rgba($icon-color, 0.3)
-	min-height: $header__height
-	min-width: $preview-pane__min-width
+	min-height: $header-height
+	min-width: $preview-pane-min-width
 	max-width: 100%
 
 .preview-pane__heading
@@ -81,7 +81,7 @@ $header__height: 184px
 
 
 .preview-pane__body
-	min-width: $preview-pane__min-width
+	min-width: $preview-pane-min-width
 	max-width: 100%
 	padding: 40px 30px
 
@@ -97,17 +97,17 @@ $header__height: 184px
  */
 .details-pane
 	flex: 1
-	flex-basis: $details-pane__max-width
+	flex-basis: $details-pane-max-width
 	display: flex
 	height: 100vh
-	max-width: $details-pane__max-width
+	max-width: $details-pane-max-width
 
 .details-pane__header
 	background-color: white
 	position: fixed
 	width: 50%
-	min-width: $details-pane__max-width
-	max-width: $details-pane__max-width
+	min-width: $details-pane-max-width
+	max-width: $details-pane-max-width
 	z-index: zindex('details-header')
 
 .details-pane__heading
@@ -122,7 +122,7 @@ $header__height: 184px
  */
 .details-pane__view
 	overflow-y: auto
-	margin-top: $header__height // header height
+	margin-top: $header-height // header height
 	width: 100%
 
 
@@ -133,7 +133,7 @@ $header__height: 184px
 	display: flex
 	border-bottom: 1px solid rgba($icon-color, 0.3)
 	justify-content: space-between
-	padding: 0 $spacing
+	padding: 0 $base-gutter
 	width: 100%
 
 .options__list
@@ -156,7 +156,7 @@ $header__height: 184px
  */
 .options__list__item--task
 	font-size: 18px
-	line-height: $baseline
+	line-height: $base-spacing
 
 /**
  * The inbox sorting options
@@ -224,7 +224,7 @@ $header__height: 184px
 
 
 	.options
-		padding-right: $spacing + 30px // make way for the hamburger menu
+		padding-right: $base-gutter + 30px // make way for the hamburger menu
 
 
 

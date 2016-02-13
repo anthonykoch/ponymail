@@ -3,14 +3,12 @@
  * Contains styles for buttons
  */
 
-$button__background: mix(color('secondary'), color('background'), 90)
-$button__foreground: rgba(white, 0.95)
-$button__background--active: #B36548
-$button__foreground--active: rgba(white, 0.8)
-$button__font-size: 12px
-
-
-
+$button-background: mix(color('secondary'), color('background'), 90)
+$button-foreground: rgba(white, 0.95)
+$button-background--active: #B36548
+$button-foreground--active: rgba(white, 0.8)
+$button-font-size: 12px
+$button-height: 20px
 
 .button
 	align-items: center
@@ -19,11 +17,12 @@ $button__font-size: 12px
 	border-radius: 3px
 	cursor: pointer
 	letter-spacing: 0.5px
-	font-size: $button__font-size
+	font-size: $button-font-size
 	font-weight: normal
 	justify-content: center
+	line-height: $button-height
 	outline: 0
-	padding: 8px 40px
+	padding: 0 40px
 	position: relative
 	transition: background 0.1s, box-shadow 0.1s
 	user-select: none
@@ -31,35 +30,32 @@ $button__font-size: 12px
 	will-change: box-shadow, background, color
 
 	&:link, &:visited
-		color: $button__foreground
+		color: $button-foreground
 
 .button--default
 	background-color: $blue
 	color: white
 
 .button--primary
-	background-color: $button__background
-	color: $button__foreground
+	background-color: $button-background
+	color: $button-foreground
 
 	&:active
-		background-color: $button__background--active
+		background-color: $button-background--active
 
 	&:hover
-		background-color: $button__background--active
+		background-color: $button-background--active
 
 .button--large
-	padding: ($baseline * 0.75) 30px
+	padding: ($base-spacing * 0.75) 30px
 
 .button--medium
-	padding: ($baseline * 0.5) 40px
+	padding: ($base-spacing * 0.5) 40px
 
 .button--reset
 	border: 0
 	background-color: transparent
 	outline: 0
-
-
-
 
 .button:hover
 	.button__icon--close
