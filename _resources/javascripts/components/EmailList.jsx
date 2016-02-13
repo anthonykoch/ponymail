@@ -3,7 +3,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import moment from 'moment';
-import EmailListItem from './EmailListItem.js';
+import EmailListItem from './EmailListItem';
 import { filters as EmailFilters } from './../constants/EmailConstants';
 
 var MailboxList = function (props, state) {

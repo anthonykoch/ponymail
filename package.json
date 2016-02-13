@@ -3,7 +3,7 @@
   "scripts": {
     "watch": "bundle exec jekyll build --watch --config _config.dev.yaml",
     "js": "webpack -d --watch",
-    "production": "webpack --optimize-minimize"
+    "production": "webpack --optimize-minimize --config webpack.production.config.js"
   },
   "devDependencies": {
     "babel-core": "^6.3.26",

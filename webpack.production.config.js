@@ -36,8 +36,8 @@ var webpackConfig = {
 	},
 	resolve:
 	{
-		alias: {
-		}
+		alias: {},
+		extensions: ['', '.js', '.jsx']
 	},
 	output:
 	{
