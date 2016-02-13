@@ -3,6 +3,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
+import { throttle } from './../utils';
 
 /**
  * The details header. It is separated out into its
@@ -13,11 +14,18 @@ export var DetailsHeader = function (props) {
 	return {
 		props,
 
-		componentDidMount() {
+		componentDidUpdate(prevProps, prevState) {
 			this.props.setMarginTop(this.refs.header.offsetHeight);
 		},
 
-		componentDidUpdate(prevProps, prevState) {
+
+		componentDidMount() {
+			var onWindowResize = throttle(this.handleWindowResize.bind(this), 40);
+			window.addEventListener('resize', onWindowResize);
+			this.props.setMarginTop(this.refs.header.offsetHeight);
+		},
+
+		handleWindowResize: function onWindowResize() {
 			this.props.setMarginTop(this.refs.header.offsetHeight);
 		},
 

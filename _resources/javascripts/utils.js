@@ -25,4 +25,34 @@ export var keys = {
 	escape: 27,
 };
 
+/**
+ * Wraps the function passed and only allows it to be called
+ * every few milliseconds.
+ * @param  {Function} fn          The function that will be called when the time has passed
+ * @param  {Number}   time        The number of milliseconds to throttle
+ * @param  {*}        thisBinding The value to be used as "this" in the function called
+ * @return {Function}
+ */
+export function throttle(fn, threshold=200, thisBinding) {
+	var last, timeoutID;
+
+	return function () {
+		var now = Date.now();
+		var timeSinceLastCall = now - last + threshold;
+		// If no thisBinding was passed, use the value of "this" here
+		var context = thisBinding === null || thisBinding === undefined ? this : thisBinding;
+
+		if (last && now < last + threshold) {
+			clearTimeout(timeoutID);
+			timeoutID = setTimeout(function call() {
+				fn.call(context, arguments);
+				last = now;
+			}, threshold);
+		} else {
+			last = now;
+			fn.apply(context, arguments);
+		}
+	};
+}
+
 export default { createUID, keys };
