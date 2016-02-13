@@ -32,9 +32,6 @@ var EmailClient = {
 	}
 };
 
-
-
-
 /**
  * Actions for the email store
  */

@@ -8,7 +8,7 @@ import classNames from 'classnames';
  * own function so it can be reused.
  * @param {Object} props
  */
-var DetailsHeader = function (props) {
+export var DetailsHeader = function (props) {
 	return {
 		props,
 
@@ -44,7 +44,7 @@ var DetailsHeader = function (props) {
  * The portion of the details pane which shows under the
  * fixed header.
  */
-var DetailsView = function (props) {
+export var DetailsView = function (props) {
 	return {
 		props,
 
@@ -85,7 +85,7 @@ var DetailsView = function (props) {
  * The details pane
  * @param {Object} props
  */
-var Details = function (props) {
+export var Details = function (props) {
 	return {
 		props,
 
@@ -98,5 +98,3 @@ var Details = function (props) {
 		}
 	};
 };
-
-export default { Details, DetailsView, DetailsHeader };

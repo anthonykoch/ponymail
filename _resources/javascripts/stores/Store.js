@@ -2,8 +2,7 @@
 
 import StoreEmitter from './StoreEmitter';
 import assign from 'object-assign';
-import uniq from 'lodash/array/uniq';
-import where from 'lodash/collection/where';
+import uniq from 'lodash/uniq';
 
 var Store = {
 	...StoreEmitter,
@@ -94,15 +93,6 @@ var Store = {
 		});
 
 		return this;
-	},
-
-	/**
-	 * An alias for _.where
-	 * @param {Object} props
-	 * @return {Object}
-	 */
-	where(props) {
-		return where(this.items, props);
 	},
 
 	_toArray

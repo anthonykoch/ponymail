@@ -4,7 +4,7 @@
  * Creates a unique id. from todomvc https://github.com/tastejs/todomvc/blob/gh-pages/examples/react/js/utils.js
  * @return {String}
  */
-function createUID() {
+export function createUID() {
 	var i, random;
 	var uuid = '';
 
@@ -19,12 +19,10 @@ function createUID() {
 	return uuid;
 };
 
-var keys = {
+export var keys = {
 	enter:  13,
 	esc:    27,
 	escape: 27,
 };
 
-function noop() {}
-
-export default { createUID, keys, noop };
+export default { createUID, keys };

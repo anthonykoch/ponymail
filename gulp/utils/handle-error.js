@@ -1,5 +1,6 @@
+'use strict';
+
 var gulp = require('gulp');
-var sublime = require('gulp-sublime');
 
 var handleError = function handleError(taskName) {
 	if (typeof taskName !== 'string') {
@@ -9,7 +10,6 @@ var handleError = function handleError(taskName) {
 
 	var plumberErrorHandler = {
 		errorHandler: function (err) {
-			sublime.showError(err, taskName)
 			console.log(err.message);
 			this.emit('end');
 		}

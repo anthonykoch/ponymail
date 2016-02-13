@@ -11,14 +11,10 @@ if (process.env.NODE_ENV.toLowerCase() === 'production') {
 	prefix = '/ponymail'
 }
 
-var paths = {
-	paths: {
-		inbox:     `${prefix}/inbox`,
-		favorites: `${prefix}/favorites`,
-		sent:      `${prefix}/sent`,
-		drafts:    `${prefix}/drafts`,
-		trash:     `${prefix}/trash`,
-	}
+export default {
+	inbox:     `${prefix}/inbox`,
+	favorites: `${prefix}/favorites`,
+	sent:      `${prefix}/sent`,
+	drafts:    `${prefix}/drafts`,
+	trash:     `${prefix}/trash`,
 };
-
-export default paths;

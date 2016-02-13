@@ -1,18 +1,7 @@
 'use strict';
 
 var webpack = require('webpack');
-
-
-
-
-var config = {
-	js: {
-		dest: __dirname + '\\assets\\javascripts',
-		out: {
-			filename: 'app.js'
-		},
-	}
-};
+var path = require('path');
 
 var vendors = {
 	'events': 'events',
@@ -20,14 +9,10 @@ var vendors = {
 	'react': require.resolve('react'),
 	'react-dom': require.resolve('react/lib/ReactDOM'),
 	'react-router': require.resolve('react-router'),
-	'moment': require.resolve('moment/min/moment.min.js'),
+	'moment': require.resolve('moment'),
 	'flux': require.resolve('flux'),
-	'history': __dirname + ('/node_modules/history'),
-	'polyfill': require.resolve('babel-core/polyfill')
+	'history': path.join(__dirname, 'node_modules/history'),
 };
-
-
-
 
 var webpackConfig = {
 	// This function will do the setup of the vendors file
@@ -51,38 +36,35 @@ var webpackConfig = {
 	},
 	resolve:
 	{
-		alias: {}
+		alias: {
+		}
 	},
 	output:
 	{
-		path: config.js.dest,
+		path: __dirname + '\\assets\\javascripts',
 		publicPath: "/assets/javascripts/",
-		filename: config.js.out.filename,
+		filename: 'app.js',
 	},
 	module:
 	{
 		noParse: [],
 		loaders: [
-			{ test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
+			{ test: /\.js$/, exclude: /node_modules/, loader: "babel-loader"}
 		],
 	},
 	plugins:
 	[
 		new webpack.optimize.CommonsChunkPlugin('vendor.js', 'vendor.js'),
-		new webpack.optimize.UglifyJsPlugin(),
 		new webpack.optimize.DedupePlugin(),
 		new webpack.DefinePlugin({
-			  'process.env': {
-					NODE_ENV: '"production"',
-					__DEV__: 'false'
-				}
-			})
+			'process.env': {
+				NODE_ENV: '"production"',
+				__DEV__: 'false'
+			}
+		})
 	],
 }
 
 webpackConfig.addVendors();
-
-
-
 
 module.exports = webpackConfig;

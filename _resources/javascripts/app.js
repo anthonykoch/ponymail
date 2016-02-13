@@ -17,26 +17,12 @@ import LabelActions from './actions/LabelActions';
 
 import EmailStore from './stores/EmailStore';
 import LabelStore from './stores/LabelStore';
-
 import { filters as EmailFilters } from './constants/EmailConstants';
-import { paths } from './constants/paths';
-
-
-
+import paths from './constants/paths';
+import matches from 'lodash/matches';
 
 const history = createBrowserHistory({ queryKey: false });
 
-
-
-
-/**
- * Next steps:
- *
- * Make it so that there is only one store that holds all emails and just map stuff from there.
- * It will be easier to manage, update, and will be more efficient because you only have
- * to run one loop instaed of 5 loops..
- *
- */
 var Home = function (props) {
 	return {
 		...React.Component.prototype,
@@ -99,16 +85,20 @@ var Home = function (props) {
 	}
 };
 
-
-
 /**
  * This is the base mail list functionality
  * @type {Object}
  */
 var Mailbox = {
 	componentWillMount() {
-		var emails          = EmailStore.where(this.emailFilter);
-		var checkedEmails   = emails.filter(({ isChecked }) => isChecked).map(({ id }) => id);
+		var emails = EmailStore
+			.getAll()
+			.filter(matches(this.emailFilter));
+
+		var checkedEmails = emails
+			.filter(({ isChecked }) => isChecked)
+			.map(({ id }) => id);
+
 		var isLoadingMoreEmails = EmailStore.isLoadingMoreEmails();
 
 		this.setState({ emails, checkedEmails, isLoadingMoreEmails });
@@ -121,8 +111,12 @@ var Mailbox = {
 	},
 
 	onStoreChange() {
-		var emails = EmailStore.where(this.emailFilter);
-		var checkedEmails = emails.filter(({ isChecked }) => isChecked).map(({ id }) => id);
+		var emails = EmailStore
+			.getAll()
+			.filter(matches(this.emailFilter));
+		var checkedEmails = emails
+			.filter(({ isChecked }) => isChecked)
+			.map(({ id }) => id);
 		var isLoadingMoreEmails = EmailStore.isLoadingMoreEmails();
 
 		this.setState({ emails, checkedEmails, isLoadingMoreEmails });
@@ -159,9 +153,6 @@ var Mailbox = {
 	}
 };
 
-
-
-
 var Icon = function (props) {
 	var iconClassName;
 
@@ -188,9 +179,6 @@ var Icon = function (props) {
 	);
 };
 
-
-
-
 var Inbox = function (props) {
 	return {
 		...React.Component.prototype,
@@ -207,7 +195,7 @@ var Inbox = function (props) {
 		},
 
 		render() {
-			var toggleChecked  = this.toggleChecked.bind(this);
+			var toggleChecked   = this.toggleChecked.bind(this);
 			var toggleFavorited = this.toggleFavorited.bind(this);
 			var sendToTrash     = this.sendToTrash.bind(this);
 			var showMoreOptions = this.showMoreOptions.bind(this);
@@ -255,9 +243,6 @@ var Inbox = function (props) {
 		}
 	};
 };
-
-
-
 
 var Favorites = function (props) {
 	return {
@@ -322,8 +307,6 @@ var Favorites = function (props) {
 	};
 };
 
-
-
 var Sent = function (props) {
 	return {
 		...React.Component.prototype,
@@ -386,9 +369,6 @@ var Sent = function (props) {
 		}
 	};
 };
-
-
-
 
 var Drafts = function (props) {
 	return {
@@ -453,9 +433,6 @@ var Drafts = function (props) {
 	};
 };
 
-
-
-
 var Trash = function (props) {
 	return {
 		...React.Component.prototype,
@@ -519,9 +496,6 @@ var Trash = function (props) {
 	};
 };
 
-
-
-
 function setPreview(email) {
 	EmailActions.setPreview(email);
 }
@@ -557,8 +531,6 @@ function removeLabel(id) {
 function onViewBottom() {
 	EmailActions.loadNextEmails()
 }
-
-
 
 ReactDOM.render(
 	<Router history={history}>

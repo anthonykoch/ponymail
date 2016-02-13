@@ -1,5 +1,5 @@
 'use strict';
 
-import 'polyfill';
+import 'babel-polyfill';
 import './setup';
 import './app';

@@ -4,7 +4,7 @@ import React from 'react';
 import SidebarButton from './../components/SidebarButton';
 import SidebarHeading from './../components/SidebarHeading';
 import SidebarLabel from './../components/SidebarLabel';
-import { paths } from './../constants/paths';
+import paths from './../constants/paths';
 
 /**
  * This is the email sidebar.

@@ -8,8 +8,6 @@ import MailboxConstants from './../constants/MailboxConstants';
 import { filters } from './../constants/EmailConstants';
 import Store from './Store';
 
-
-
 var _isLoadingMoreEmails = false;
 
 /**

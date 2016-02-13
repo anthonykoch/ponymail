@@ -4,16 +4,10 @@ import AppDispatcher from './../dispatcher/AppDispatcher';
 import LabelConstants from './../constants/LabelConstants';
 import Store from './Store';
 
-
-
-
 var LabelStore = {
 	...Store,
 	items: __initialLabels
 };
-
-
-
 
 AppDispatcher.register(function (payload) {
 	var { action, data: { ids, labels } } = payload;
