@@ -102,11 +102,11 @@ loadEmail({
 		<p>
 			The functionality I did make was:
 		</p>
-		<ul class="ui-list ui-list--bullet">
-			<li class="ui-list__item">The email preview, which is this pane</li>
-			<li class="ui-list__item">Mark email as favorites</li>
-			<li class="ui-list__item">Send emails to trash</li>
-			<li class="ui-list__item">Delete labels</li>
+		<ul class="list list--bullet">
+			<li class="list__item">The email preview, which is this pane</li>
+			<li class="list__item">Mark email as favorites</li>
+			<li class="list__item">Send emails to trash</li>
+			<li class="list__item">Delete labels</li>
 		</ul>
 
 		<br />
