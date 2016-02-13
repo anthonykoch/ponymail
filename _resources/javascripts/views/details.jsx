@@ -14,19 +14,24 @@ export var DetailsHeader = function (props) {
 	return {
 		props,
 
-		componentDidUpdate(prevProps, prevState) {
-			this.props.setMarginTop(this.refs.header.offsetHeight);
+		updateMarginTop() {
+			if (this.refs.header) {
+				this.props.setMarginTop(this.refs.header.offsetHeight);
+			}
 		},
 
+		componentDidUpdate(prevProps, prevState) {
+			this.updateMarginTop();
+		},
 
 		componentDidMount() {
 			var onWindowResize = throttle(this.handleWindowResize.bind(this), 40);
 			window.addEventListener('resize', onWindowResize);
-			this.props.setMarginTop(this.refs.header.offsetHeight);
+			this.updateMarginTop();
 		},
 
 		handleWindowResize: function onWindowResize() {
-			this.props.setMarginTop(this.refs.header.offsetHeight);
+			this.updateMarginTop();
 		},
 
 		shouldComponentUpdate(newProps) {
