@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 
 /**
@@ -11,6 +12,14 @@ import classNames from 'classnames';
 export var DetailsHeader = function (props) {
 	return {
 		props,
+
+		componentDidMount() {
+			this.props.setMarginTop(this.refs.header.offsetHeight);
+		},
+
+		componentDidUpdate(prevProps, prevState) {
+			this.props.setMarginTop(this.refs.header.offsetHeight);
+		},
 
 		shouldComponentUpdate(newProps) {
 			var predicates = [
@@ -24,7 +33,7 @@ export var DetailsHeader = function (props) {
 			var { title } = this.props;
 
 			return (
-				<div className="details-pane__header">
+				<div ref="header" className="details-pane__header">
 					<div className="details-pane__top  [ flex flex--justify-between flex--items-center ]">
 						<h1 className="details-pane__heading">
 							{title}
@@ -62,16 +71,21 @@ export var DetailsView = function (props) {
 				var isScrolledToBottom = view.scrollHeight - view.scrollTop === view.clientHeight;
 				var { onViewScroll, onViewBottom } = this.props;
 
-				(onViewScroll) ? onViewScroll() : 0;
-				(isScrolledToBottom && onViewBottom) ? onViewBottom() : 0;
+				(onViewScroll) ? onViewScroll() : void 0;
+				(isScrolledToBottom && onViewBottom) ? onViewBottom() : void 0;
 			});
 		},
 
 		render() {
+			var styles = {
+				marginTop: this.props.marginTop
+			};
+
 			return (
 				<div
 					ref="view"
 					className="details-pane__view"
+					style={styles}
 					onScroll={this.onViewScroll.bind(this)}
 				>
 					{this.props.children}
@@ -87,12 +101,37 @@ export var DetailsView = function (props) {
  */
 export var Details = function (props) {
 	return {
+		...React.Component.prototype,
+
 		props,
 
+		state: {
+			// The margin top of the details view
+			marginTop: void 0
+		},
+
+		/**
+		 * Sets the marginTop style of the margin top of the details view
+		 * @param {Number} marginTop
+		 */
+		setMarginTop(marginTop) {
+			this.setState({ marginTop });
+		},
+
 		render() {
+			var marginTop = this.state.marginTop;
+			var children = React.Children.map(this.props.children, function(child) {
+				return React.cloneElement(
+					child,
+					{
+						marginTop,
+						setMarginTop: this.setMarginTop.bind(this)
+					});
+			}, this);
+
 			return (
 				<section id="Details" className="details-pane">
-					{this.props.children}
+					{children}
 				</section>
 			);
 		}

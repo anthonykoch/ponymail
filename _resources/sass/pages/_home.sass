@@ -4,7 +4,6 @@
 
 $details-pane-max-width: 650px
 $preview-pane-min-width: 400px;
-$header-height: 184px
 
 #mobile-checkbox:checked + .sidebar
 	transform: translateY(0%)
@@ -50,7 +49,6 @@ $header-height: 184px
 	background-color: white
 	padding: 20px 20px 10px
 	border-bottom: 1px solid rgba($icon-color, 0.3)
-	min-height: $header-height
 	min-width: $preview-pane-min-width
 	max-width: 100%
 
@@ -119,7 +117,6 @@ $header-height: 184px
  */
 .details-pane__view
 	overflow-y: auto
-	margin-top: $header-height // header height
 	width: 100%
 
 
@@ -207,7 +204,6 @@ $header-height: 184px
 		display: none
 
 	.details-pane__view
-		margin-top: 51px
 		width: 100%
 
 

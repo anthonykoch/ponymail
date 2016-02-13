@@ -8180,9 +8180,9 @@ webpackJsonp([0],[
 
 /***/ },
 /* 347 */
-/*!***************************************!*\
-  !*** ./_resources/javascripts/app.js ***!
-  \***************************************/
+/*!****************************************!*\
+  !*** ./_resources/javascripts/app.jsx ***!
+  \****************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9092,9 +9092,9 @@ webpackJsonp([0],[
 
 /***/ },
 /* 553 */
-/*!*************************************************!*\
-  !*** ./_resources/javascripts/views/Sidebar.js ***!
-  \*************************************************/
+/*!**************************************************!*\
+  !*** ./_resources/javascripts/views/Sidebar.jsx ***!
+  \**************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9246,9 +9246,9 @@ webpackJsonp([0],[
 
 /***/ },
 /* 554 */
-/*!************************************************************!*\
-  !*** ./_resources/javascripts/components/SidebarButton.js ***!
-  \************************************************************/
+/*!*************************************************************!*\
+  !*** ./_resources/javascripts/components/SidebarButton.jsx ***!
+  \*************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9351,9 +9351,9 @@ webpackJsonp([0],[
 
 /***/ },
 /* 555 */
-/*!*************************************************************!*\
-  !*** ./_resources/javascripts/components/SidebarHeading.js ***!
-  \*************************************************************/
+/*!**************************************************************!*\
+  !*** ./_resources/javascripts/components/SidebarHeading.jsx ***!
+  \**************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9410,9 +9410,9 @@ webpackJsonp([0],[
 
 /***/ },
 /* 556 */
-/*!***********************************************************!*\
-  !*** ./_resources/javascripts/components/SidebarLabel.js ***!
-  \***********************************************************/
+/*!************************************************************!*\
+  !*** ./_resources/javascripts/components/SidebarLabel.jsx ***!
+  \************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9529,9 +9529,9 @@ webpackJsonp([0],[
 
 /***/ },
 /* 558 */
-/*!*************************************************!*\
-  !*** ./_resources/javascripts/views/Preview.js ***!
-  \*************************************************/
+/*!**************************************************!*\
+  !*** ./_resources/javascripts/views/Preview.jsx ***!
+  \**************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9637,9 +9637,9 @@ webpackJsonp([0],[
 
 /***/ },
 /* 559 */
-/*!*************************************************!*\
-  !*** ./_resources/javascripts/views/Details.js ***!
-  \*************************************************/
+/*!**************************************************!*\
+  !*** ./_resources/javascripts/views/Details.jsx ***!
+  \**************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9649,9 +9649,15 @@ webpackJsonp([0],[
 	});
 	exports.Details = exports.DetailsView = exports.DetailsHeader = undefined;
 	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
 	var _react = __webpack_require__(/*! react */ 351);
 	
 	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactDom = __webpack_require__(/*! react-dom */ 353);
+	
+	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
 	var _classnames = __webpack_require__(/*! classnames */ 552);
 	
@@ -9668,6 +9674,12 @@ webpackJsonp([0],[
 		return {
 			props: props,
 	
+			componentDidMount: function componentDidMount() {
+				this.props.setMarginTop(this.refs.header.offsetHeight);
+			},
+			componentDidUpdate: function componentDidUpdate(prevProps, prevState) {
+				this.props.setMarginTop(this.refs.header.offsetHeight);
+			},
 			shouldComponentUpdate: function shouldComponentUpdate(newProps) {
 				var predicates = [this.props.title === newProps.title];
 	
@@ -9681,7 +9693,7 @@ webpackJsonp([0],[
 	
 				return _react2.default.createElement(
 					'div',
-					{ className: 'details-pane__header' },
+					{ ref: 'header', className: 'details-pane__header' },
 					_react2.default.createElement(
 						'div',
 						{ className: 'details-pane__top  [ flex flex--justify-between flex--items-center ]' },
@@ -9729,16 +9741,21 @@ webpackJsonp([0],[
 					var onViewBottom = _props.onViewBottom;
 	
 	
-					onViewScroll ? onViewScroll() : 0;
-					isScrolledToBottom && onViewBottom ? onViewBottom() : 0;
+					onViewScroll ? onViewScroll() : void 0;
+					isScrolledToBottom && onViewBottom ? onViewBottom() : void 0;
 				});
 			},
 			render: function render() {
+				var styles = {
+					marginTop: this.props.marginTop
+				};
+	
 				return _react2.default.createElement(
 					'div',
 					{
 						ref: 'view',
 						className: 'details-pane__view',
+						style: styles,
 						onScroll: this.onViewScroll.bind(this)
 					},
 					this.props.children
@@ -9752,24 +9769,45 @@ webpackJsonp([0],[
 	 * @param {Object} props
 	 */
 	var Details = exports.Details = function Details(props) {
-		return {
+		return _extends({}, _react2.default.Component.prototype, {
+	
 			props: props,
 	
+			state: {
+				// The margin top of the details view
+				marginTop: void 0
+			},
+	
+			/**
+	   * Sets the marginTop style of the margin top of the details view
+	   * @param {Number} marginTop
+	   */
+			setMarginTop: function setMarginTop(marginTop) {
+				this.setState({ marginTop: marginTop });
+			},
 			render: function render() {
+				var marginTop = this.state.marginTop;
+				var children = _react2.default.Children.map(this.props.children, function (child) {
+					return _react2.default.cloneElement(child, {
+						marginTop: marginTop,
+						setMarginTop: this.setMarginTop.bind(this)
+					});
+				}, this);
+	
 				return _react2.default.createElement(
 					'section',
 					{ id: 'Details', className: 'details-pane' },
-					this.props.children
+					children
 				);
 			}
-		};
+		});
 	};
 
 /***/ },
 /* 560 */
-/*!********************************************************!*\
-  !*** ./_resources/javascripts/components/EmailList.js ***!
-  \********************************************************/
+/*!*********************************************************!*\
+  !*** ./_resources/javascripts/components/EmailList.jsx ***!
+  \*********************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9790,7 +9828,7 @@ webpackJsonp([0],[
 	
 	var _moment2 = _interopRequireDefault(_moment);
 	
-	var _EmailListItem = __webpack_require__(/*! ./EmailListItem.js */ 561);
+	var _EmailListItem = __webpack_require__(/*! ./EmailListItem */ 561);
 	
 	var _EmailListItem2 = _interopRequireDefault(_EmailListItem);
 	
@@ -9933,9 +9971,9 @@ webpackJsonp([0],[
 
 /***/ },
 /* 561 */
-/*!************************************************************!*\
-  !*** ./_resources/javascripts/components/EmailListItem.js ***!
-  \************************************************************/
+/*!*************************************************************!*\
+  !*** ./_resources/javascripts/components/EmailListItem.jsx ***!
+  \*************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
