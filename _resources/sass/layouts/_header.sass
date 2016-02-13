@@ -3,22 +3,6 @@
  * Styles for the page header, page header navigation, and logo.
  */
 
-$site-nav-mobile-width: 250px
-
-.page-header
-	pass
-
-
-
-
-/**
- * When the checkbox has been toggled by the toggler (.mobile-toggle)
- * the following styles will be applied
- */
-#mobile-nav-checkbox:checked + .site-nav
-	box-shadow: 0 0 20px rgba(black, 0.2)
-	transform: translateX(0px)
-
 /**
  * Overrides ionic icon display: inline-block
  */
@@ -42,69 +26,8 @@ $site-nav-mobile-width: 250px
 
 
 
-.site-nav
-	pass
-
-.site-nav__list
-	display: flex
-
-.site-nav__item
-	display: inline-block
-
-.site-nav__link
-	pass
-
-
-
-
 @media screen and (max-width: breakpoint('large'))
-	.page-header
-		pass
-
-
-
 
 	.mobile-toggle
 		display: inline-block !important
 		z-index: zindex('mobile-toggle')
-
-
-
-
-	/**
-	 * Shows the site navigation and the logo on separate lines
-	 * as well as at full width
-	 */
-	.site-nav
-		background-color: white
-		border-left: 8px solid #777
-		text-align: center
-		width: 100%
-		transform: translateX(-$site-nav-mobile-width)
-		transition: transform 0.2s
-		max-width: $site-nav-mobile-width
-		z-index: zindex('navigation')
-		+position(absolute, 0)
-
-	.site-nav__list
-		display: block
-		width: 100%
-
-	.site-nav__item
-		margin-left: 0px
-		width: 100%
-		display: block
-
-	.site-nav__link
-		border-width: 0px
-		display: block
-		padding: $base-spacing
-		width: 100%
-
-		&:hover, &:active
-			color: color('secondary')
-			background-color: rgba(color('background'), 0.6)
-
-		&--active
-			&:link, &:visited
-				background-color: color('background')
